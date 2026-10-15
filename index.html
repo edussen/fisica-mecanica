@@ -22,7 +22,6 @@
     min-height:100vh;
   }
 
-  /* ---------- Header CUC ---------- */
   .hdr{
     position:sticky;top:0;z-index:80;display:flex;align-items:center;justify-content:space-between;
     height:63px;padding:0 24px;color:#fff;background-color:#c8000d;
@@ -46,7 +45,6 @@
   @media(max-width:820px){.hdr-titulo{display:none}}
   @media(max-width:560px){.hdr{padding:0 14px}.hdr-logo,.hdr-logo-txt{padding-left:0}.hdr-logo{height:22px}}
 
-  /* ---------- Menú lateral ---------- */
   .velo{position:fixed;inset:0;background:rgba(20,20,43,.5);opacity:0;visibility:hidden;
     transition:opacity .25s ease,visibility .25s ease;z-index:90}
   .velo.abierto{opacity:1;visibility:visible}
@@ -60,7 +58,6 @@
   .lateral-cerrar{width:36px;height:36px;border:none;border-radius:50%;background:transparent;color:#fff;
     font-size:1.5rem;line-height:1;cursor:pointer;font-family:inherit}
   .lateral-cerrar:hover{background:rgba(255,255,255,.16)}
-  /* Radar: corte en curso según el calendario */
   .estado-corte{margin:6px 4px 16px;padding:16px 14px;border:1px solid var(--borde-suave);border-radius:14px;background:#f7f8fa}
   .ec-cab{display:flex;flex-wrap:wrap;align-items:center;gap:10px 6px}
   .ec-cab>div{flex:1 1 130px;min-width:0}
@@ -117,7 +114,6 @@
   .grupo:not(.abierto) .grupo-int a,.grupo:not(.abierto) .grupo-int span,.grupo:not(.abierto) .sub-titulo{visibility:hidden}
   .lateral-cerrar:focus-visible,.grupo-btn:focus-visible,a.sub:focus-visible{outline:3px solid #3b82f6;outline-offset:2px}
 
-  /* ---------- Contenido ---------- */
   .wrap{max-width:1080px;margin:0 auto;padding:28px 20px 60px}
   .top{margin-bottom:22px;text-align:center}
   .eyebrow{
@@ -160,12 +156,10 @@
   .btn-primario:hover{background:var(--acento-oscuro);border-color:var(--acento-oscuro)}
   .seg:focus-visible,.btn:focus-visible{outline:3px solid #3b82f6;outline-offset:2px}
 
-  /* ---------- Inicio (estilo tienda) ---------- */
   body.pagina-inicio{background:#f2f4f7}
   .home-wrap{max-width:1180px;padding-top:0}
   .home-wrap .seccion{scroll-margin-top:132px}
 
-  /* cintillo: pestañas fijas debajo del header */
   .cintillo{position:sticky;top:63px;z-index:70;background:#fff;border-bottom:1px solid #e6e9ed}
   .cintillo-lista{display:flex;gap:4px;max-width:1180px;margin:0 auto;padding:0 20px;overflow-x:auto;scrollbar-width:none}
   .cintillo-lista::-webkit-scrollbar{display:none}
@@ -174,7 +168,6 @@
   .cintillo a.activo{color:var(--acento-oscuro);border-bottom-color:var(--acento-oscuro)}
   .cintillo a:focus-visible{outline:3px solid #3b82f6;outline-offset:-3px;border-radius:6px}
 
-  /* portada: la foto limpia y la tarjeta de información montada encima */
   .portada{margin:20px 0 34px}
   .portada-fotos{position:relative;height:clamp(210px,32vw,340px);border-radius:20px;overflow:hidden;background:linear-gradient(135deg,#a3000b,#e8141f)}
   .slide{position:absolute;inset:0;opacity:0;transition:opacity .7s ease}
@@ -216,13 +209,11 @@
   @keyframes badge-shiny{0%,62%{left:-60%}88%,100%{left:130%}}
   @media(prefers-reduced-motion:reduce){.badge.actual::after{animation:none;display:none}}
 
-  /* secciones */
   .seccion{margin-bottom:38px}
   .seccion-titulo{display:flex;align-items:baseline;justify-content:space-between;gap:14px;flex-wrap:wrap;margin-bottom:14px}
   .seccion-titulo h2{font-size:1.4rem;font-weight:800;letter-spacing:-.02em;color:#17171c;margin:0}
   .seccion-titulo span{font-size:.85rem;color:var(--texto-tenue);font-weight:600}
 
-  /* cortes: tarjetas con "foto" arriba */
   .rejilla-cortes{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
   .corte-card{--c:#9aa0a6;position:relative;display:flex;flex-direction:column;background:#fff;border:1px solid #f0f2f5;border-radius:16px;overflow:hidden;box-shadow:0 1px 3px rgba(16,24,40,.06),0 1px 2px rgba(16,24,40,.04);transition:box-shadow .18s ease,transform .18s ease}
   .corte-card:hover{box-shadow:0 8px 24px rgba(16,24,40,.12);transform:translateY(-3px)}
@@ -231,7 +222,6 @@
   .corte-card.actual{--c:#f5a800}
   .cc-cover{position:relative;aspect-ratio:16/10;overflow:hidden;background:linear-gradient(135deg,#a3000b,#e8141f)}
   .cc-cover img.foto{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s ease,filter .4s ease}
-  /* corte finalizado: la foto en gris, como "ya terminó"; al pasar el mouse recupera el color */
   .corte-card.hecho .cc-cover img.foto{filter:grayscale(1) brightness(.96)}
   .corte-card.hecho:hover .cc-cover img.foto{filter:grayscale(.25)}
   .corte-card:hover .cc-cover img.foto{transform:scale(1.04)}
@@ -255,18 +245,15 @@
   .cc-btn:focus-visible{outline:3px solid #3b82f6;outline-offset:-3px}
   .cc-wrap-btn{padding-top:6px;margin-top:auto}
 
-  /* subtítulos de "Todo el contenido": Proyecto ABP y Laboratorios, en gris */
   .sub-seccion{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap;margin:28px 0 14px;padding-bottom:10px;border-bottom:1px solid #e6e9ed;
     font-size:.8rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--texto-tenue);scroll-margin-top:132px}
   .sub-seccion:first-of-type{margin-top:8px}
   .sub-seccion span{font-size:.82rem;font-weight:600;letter-spacing:0;text-transform:none;color:#b4bac2}
 
-  /* corte por iniciar: su imagen también en gris, como si ya hubiera terminado */
   .corte-card.pronto .cc-cover img.foto{filter:grayscale(1) brightness(.96)}
   .corte-card.pronto .cc-cover.sin{background:#6d6d6d}
   .corte-card.pronto .cc-cover .logo-cuc{filter:grayscale(1) brightness(2.1)}
 
-  /* subtítulo de cada corte dentro de Proyecto ABP */
   .subgrupo{margin-bottom:26px}
   .subgrupo:last-child{margin-bottom:0}
   .subtitulo{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:0 0 12px;font-size:.95rem;font-weight:800;color:#17171c}
@@ -277,7 +264,6 @@
   .subtitulo a:focus-visible{outline:3px solid #3b82f6;outline-offset:2px;border-radius:4px}
   .rejilla{list-style:none}
 
-  /* rejilla de contenido */
   .filtros{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px}
   .chip{padding:8px 16px;border-radius:999px;border:1.5px solid #e6e9ed;background:#fff;color:var(--texto-suave);font-family:inherit;font-size:.86rem;font-weight:700;cursor:pointer;transition:all .15s ease}
   .chip:hover{border-color:#cfd3d9;color:#17171c}
@@ -326,7 +312,7 @@
         <a class="sub" href="corte-1/abp/informe/"><i class="ph ph-file-text" aria-hidden="true"></i>Archivo ABP</a>
         <a class="sub" href="corte-1/abp/simualdor/"><i class="ph ph-cube" aria-hidden="true"></i>Simulador v1</a>
         <div class="sub-titulo">EXPERIENCIAS DE LAB</div>
-        <span class="sub sub-off" aria-disabled="true"><i class="ph ph-flask" aria-hidden="true"></i>Experiencia #1</span>
+        <a class="sub" href="corte-1/laboratorios/1/"><i class="ph ph-file-pdf" aria-hidden="true"></i>Experiencia #1</a>
         <a class="sub" href="corte-1/laboratorios/2/"><i class="ph ph-play-circle" aria-hidden="true"></i>Experiencia #2</a>
       </div></div>
     </div>
@@ -338,8 +324,8 @@
         <a class="sub" href="corte-2/abp/simualdor/"><i class="ph ph-cube" aria-hidden="true"></i>Simulador 3D</a>
         <span class="sub sub-off" aria-disabled="true"><i class="ph ph-file-text" aria-hidden="true"></i>Archivo ABP</span>
         <div class="sub-titulo">EXPERIENCIAS DE LAB</div>
-        <span class="sub sub-off" aria-disabled="true"><i class="ph ph-flask" aria-hidden="true"></i>Experiencia #3</span>
-        <a class="sub" href="corte-2/laboratorios/4/"><i class="ph ph-hammer" aria-hidden="true"></i>Experiencia #4</a>
+        <a class="sub" href="corte-2/laboratorios/3/"><i class="ph ph-file-pdf" aria-hidden="true"></i>Experiencia #3</a>
+        <a class="sub" href="corte-2/laboratorios/4/"><i class="ph ph-play-circle" aria-hidden="true"></i>Experiencia #4</a>
       </div></div>
     </div>
     <div class="grupo">
@@ -415,7 +401,7 @@
             <h3>Corte 1</h3>
             <p class="cc-fechas"><i class="ph ph-calendar-blank" aria-hidden="true"></i><span data-fechas></span></p>
             <div class="cc-barra" aria-hidden="true"><span data-barra></span></div>
-            <p class="cc-datos"><span data-pct></span><span>3 de 4 contenidos</span></p>
+            <p class="cc-datos"><span data-pct></span><span>4 de 4 contenidos</span></p>
             <div class="cc-wrap-btn"><a class="cc-btn" href="corte-1/">Entrar al corte<i class="ph ph-arrow-right" aria-hidden="true"></i></a></div>
           </div>
         </article>
@@ -429,7 +415,7 @@
             <h3>Corte 2</h3>
             <p class="cc-fechas"><i class="ph ph-calendar-blank" aria-hidden="true"></i><span data-fechas></span></p>
             <div class="cc-barra" aria-hidden="true"><span data-barra></span></div>
-            <p class="cc-datos"><span data-pct></span><span>2 de 5 contenidos</span></p>
+            <p class="cc-datos"><span data-pct></span><span>4 de 5 contenidos</span></p>
             <div class="cc-wrap-btn"><a class="cc-btn" href="corte-2/">Entrar al corte<i class="ph ph-arrow-right" aria-hidden="true"></i></a></div>
           </div>
         </article>
@@ -485,10 +471,10 @@
 
     <h3 class="sub-seccion" id="laboratorios">Laboratorios<span>Experiencias de los tres cortes, por número</span></h3>
     <ul class="rejilla">
-          <li><div class="tarjeta off" aria-disabled="true"><div class="t-media"><i class="ph ph-flask" aria-hidden="true"></i></div><div class="t-cuerpo"><span class="t-grupo">Corte 1</span><span class="t-nombre">Experiencia #1</span><span class="t-desc">Laboratorio de física</span><span class="t-tag">Sin información</span></div></div></li>
+          <li><a class="tarjeta" href="corte-1/laboratorios/1/"><div class="t-media"><i class="ph ph-file-pdf" aria-hidden="true"></i></div><div class="t-cuerpo"><span class="t-grupo">Corte 1</span><span class="t-nombre">Experiencia #1</span><span class="t-desc">Informe en PDF de la experiencia de laboratorio</span></div></a></li>
           <li><a class="tarjeta" href="corte-1/laboratorios/2/"><div class="t-media"><i class="ph ph-play-circle" aria-hidden="true"></i></div><div class="t-cuerpo"><span class="t-grupo">Corte 1</span><span class="t-nombre">Experiencia #2</span><span class="t-desc">Movimiento rectilíneo uniformemente acelerado</span></div></a></li>
-          <li><div class="tarjeta off" aria-disabled="true"><div class="t-media"><i class="ph ph-flask" aria-hidden="true"></i></div><div class="t-cuerpo"><span class="t-grupo">Corte 2</span><span class="t-nombre">Experiencia #3</span><span class="t-desc">Laboratorio de física</span><span class="t-tag">Sin información</span></div></div></li>
-          <li><a class="tarjeta obra" href="corte-2/laboratorios/4/"><div class="t-media"><i class="ph ph-hammer" aria-hidden="true"></i></div><div class="t-cuerpo"><span class="t-grupo">Corte 2</span><span class="t-nombre">Experiencia #4</span><span class="t-desc">Estamos preparando el contenido</span><span class="t-tag">En construcción</span></div></a></li>
+          <li><a class="tarjeta" href="corte-2/laboratorios/3/"><div class="t-media"><i class="ph ph-file-pdf" aria-hidden="true"></i></div><div class="t-cuerpo"><span class="t-grupo">Corte 2</span><span class="t-nombre">Experiencia #3</span><span class="t-desc">Informe en PDF de la experiencia de laboratorio</span></div></a></li>
+          <li><a class="tarjeta" href="corte-2/laboratorios/4/"><div class="t-media"><i class="ph ph-play-circle" aria-hidden="true"></i></div><div class="t-cuerpo"><span class="t-grupo">Corte 2</span><span class="t-nombre">Experiencia #4</span><span class="t-desc">Video de la experiencia de laboratorio</span></div></a></li>
           <li><div class="tarjeta off" aria-disabled="true"><div class="t-media"><i class="ph ph-flask" aria-hidden="true"></i></div><div class="t-cuerpo"><span class="t-grupo">Corte 3</span><span class="t-nombre">Experiencia #5</span><span class="t-desc">Semana 12 · miércoles 28 de octubre</span><span class="t-tag">Próximamente</span></div></div></li>
           <li><div class="tarjeta off" aria-disabled="true"><div class="t-media"><i class="ph ph-flask" aria-hidden="true"></i></div><div class="t-cuerpo"><span class="t-grupo">Corte 3</span><span class="t-nombre">Experiencia #6</span><span class="t-desc">Semana 14 · miércoles 11 de noviembre</span><span class="t-tag">Próximamente</span></div></div></li>
     </ul>
@@ -498,7 +484,6 @@
 </main>
 
 <script>
-// Menú lateral
 const lateral=document.getElementById('lateral'),velo=document.getElementById('velo'),
       btnMenu=document.getElementById('menuAbrir');
 function menu(abrir){
@@ -510,7 +495,6 @@ function menu(abrir){
 btnMenu.addEventListener('click',()=>menu(true));
 document.getElementById('menuCerrar').addEventListener('click',()=>menu(false));
 velo.addEventListener('click',()=>menu(false));
-// Grupos desplegables (Corte 1, 2, 3): uno abierto a la vez
 document.querySelectorAll('.grupo-btn').forEach(b=>b.addEventListener('click',()=>{
   const g=b.parentElement,abrir=!g.classList.contains('abierto');
   document.querySelectorAll('.grupo').forEach(x=>{
@@ -523,9 +507,6 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape'&&lateral.classList.c
 
 
 <script>
-// ---------- Calendario académico 2026-2 (radar del corte en curso) ----------
-// Fuente: calendario académico 2026-2 de la CUC. Cada semana y cada corte termina en "fin" (inclusive).
-// Prueba de otra fecha sin tocar el código: agrega ?fecha=2026-10-20 a la dirección.
 const CALENDARIO=[
   {n:1,fin:"2026-09-06",semanas:[
     {n:1,fin:"2026-08-09"},{n:2,fin:"2026-08-16"},{n:3,fin:"2026-08-23"},{n:4,fin:"2026-08-30"},{n:5,fin:"2026-09-06"}
@@ -572,7 +553,6 @@ function fechaCorta(s){return diaLocal(s).toLocaleDateString("es-CO",{weekday:"s
 })();
 </script>
 <script>
-// Estado de los cortes según el calendario (CALENDARIO, más arriba en la página), carrusel, filtros y pestañas.
 (function(){
   const q=new URLSearchParams(location.search).get("fecha");
   const hoy=q&&/^\d{4}-\d{2}-\d{2}$/.test(q)?diaLocal(q):new Date();
@@ -594,7 +574,6 @@ function fechaCorta(s){return diaLocal(s).toLocaleDateString("es-CO",{weekday:"s
     el.querySelector("[data-pct]").textContent=estado==="pronto"?"Aún no empieza":avance(c)+"% del corte";
   });
 
-  // tarjeta de información de la portada
   const ir=document.getElementById("irCorte"),est=document.getElementById("hEstado"),
         hc=document.getElementById("hCorte"),hs=document.getElementById("hSemana"),hp=document.getElementById("hPct");
   if(act){
@@ -609,7 +588,6 @@ function fechaCorta(s){return diaLocal(s).toLocaleDateString("es-CO",{weekday:"s
     ir.href="corte-3/";ir.querySelector("span").textContent="Ver el Corte 3";
   }
 
-  // carrusel de fotos de la portada (cada 6 s; se detiene con el mouse encima)
   const p=document.getElementById("portada"),slides=[...p.querySelectorAll(".slide")],dots=[...p.querySelectorAll(".dot")];
   let i=0,timer=null;
   const reduce=matchMedia("(prefers-reduced-motion:reduce)").matches;
@@ -623,7 +601,6 @@ function fechaCorta(s){return diaLocal(s).toLocaleDateString("es-CO",{weekday:"s
   p.addEventListener("mouseenter",()=>clearInterval(timer));p.addEventListener("mouseleave",auto);
   ir2(0);auto();
 
-  // pestañas del cintillo: se marca la sección que se está viendo
   const tabs=[...document.querySelectorAll(".cintillo a[data-sec]")];
   const secs=tabs.map(a=>document.getElementById(a.dataset.sec));
   function espia(){
