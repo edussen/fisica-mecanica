@@ -443,6 +443,7 @@ const CAPACIDAD_TRAMPA=8;
 let residuosEnTrampa=0;
 let cintatActiva=false;
 let vaciando=false;
+let oleadaPendiente=false;
 let oleadaActual=1;
 let totalOleadas=0;
 let capAcumulado=0;
@@ -473,6 +474,7 @@ function iniciar(){
   residuosEnTrampa=0;
   nivelTrampa=0;
   vaciando=false;
+  oleadaPendiente=false;
   cintatActiva=false;
   actualizarElectronico();
   lanzarOleada();
@@ -538,10 +540,12 @@ function activarCinta(on){
         info.textContent='Trampa vaciada ✓ Ciclo reiniciado';
         document.getElementById('alertaLora').classList.remove('activa');
         activarRadar(false);
-        if(oleadaIndex<OLEADA_GRUPOS&&animando){
+        if(oleadaIndex<OLEADA_GRUPOS&&(animando||oleadaPendiente)){
+          oleadaPendiente=false;
           oleadaActual++;
           document.getElementById('oleadaN').textContent=oleadaActual;
           lanzarOleada();
+          animando=true;
         }
         actualizarElectronico();
       });
@@ -1098,15 +1102,21 @@ function actualizarMarcador(){
   document.getElementById('capBar').style.width=(cap/cantidad*100)+'%';
 }
 function finalizar(){
-  const {cap,per}=conteo();
-  capAcumulado+=cap; perAcumulado+=per;
-  if(oleadaIndex<OLEADA_GRUPOS&&!vaciando){
+  if(oleadaIndex<OLEADA_GRUPOS){
+    if(vaciando){
+      // la cinta aún está retirando residuos: la siguiente oleada sale cuando termine
+      oleadaPendiente=true;
+      return;
+    }
     oleadaActual++;
     document.getElementById('oleadaN').textContent=oleadaActual;
     lanzarOleada();
     animando=true;
     return;
   }
+  // 'particulas' conserva todas las oleadas, así que el conteo final ya es el total
+  const {cap,per}=conteo();
+  capAcumulado=cap; perAcumulado=per;
   const total=capAcumulado+perAcumulado;
   const pct=total?Math.round(capAcumulado/cantidad*100):0;
   const v=document.getElementById('veredicto');
@@ -1191,7 +1201,7 @@ function reset(){
   animando=false;
   particulas=[];
   oleadaIndex=0; oleadaActual=1; capAcumulado=0; perAcumulado=0;
-  residuosEnTrampa=0; nivelTrampa=0; vaciando=false;
+  residuosEnTrampa=0; nivelTrampa=0; vaciando=false; oleadaPendiente=false;
   activarCinta(false); activarRadar(false);
   document.getElementById('alertaLora').classList.remove('activa');
   document.getElementById('cintaResidуos').textContent='Esperando acumulación…';
